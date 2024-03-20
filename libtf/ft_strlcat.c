@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/20 09:37:42 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/20 14:06:51 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/20 14:06:54 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-int main(void)
-{
+#include "libft.h"
 
-	printf("super\n");
-	return 0;
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	result;
+
+	i = 0;
+	while (*dst && i < size)
+	{
+		dst++;
+		i++;
+	}
+	result = ft_strlcpy(dst, src, size - i);
+	return (result + i);
 }

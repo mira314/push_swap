@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/20 09:37:42 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/19 13:42:43 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/19 13:42:49 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-int main(void)
-{
+#include "libft.h"
 
-	printf("super\n");
-	return 0;
+int	ft_isalnum(int c)
+{
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
+	{
+		return (1);
+	}
+	return (0);
 }

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/20 09:37:42 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/20 17:33:54 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/20 17:33:58 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-int main(void)
-{
+#include "libft.h"
 
-	printf("super\n");
-	return 0;
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	while (n--)
+	{
+		if (*(unsigned char *)s == (unsigned char )c)
+			return ((void *)s);
+		s++;
+	}
+	return (0);
 }

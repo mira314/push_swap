@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/21 09:31:28 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/20 11:54:12 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/20 11:54:14 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-typedef struct s_pile
+size_t	ft_strlen(const char *s)
 {
-	int	*range;
-	int	size_pile;
-} t_pile;
- 
-#endif
+	size_t	len;
+
+	len = 0;
+	while (*s)
+	{
+		s++;
+		len++;
+	}
+	return (len);
+}

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/21 09:31:28 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/19 13:42:43 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/19 13:42:49 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-typedef struct s_pile
+int	ft_isalnum(int c)
 {
-	int	*range;
-	int	size_pile;
-} t_pile;
- 
-#endif
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
+	{
+		return (1);
+	}
+	return (0);
+}

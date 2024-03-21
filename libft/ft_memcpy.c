@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/21 09:31:28 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/20 11:22:51 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/20 11:22:56 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-typedef struct s_pile
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	*range;
-	int	size_pile;
-} t_pile;
- 
-#endif
+	char	*result;
+
+	result = dest;
+	if (!dest && !src)
+		return (0);
+	while (n--)
+	{
+		*(char *)dest++ = *(char *)src++;
+	}
+	return (result);
+}

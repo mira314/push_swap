@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vrandria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/21 09:31:28 by vrandria         ###   ########.fr       */
+/*   Created: 2024/02/20 14:06:51 by vrandria          #+#    #+#             */
+/*   Updated: 2024/02/20 14:06:54 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-typedef struct s_pile
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	*range;
-	int	size_pile;
-} t_pile;
- 
-#endif
+	size_t	i;
+	size_t	result;
+
+	i = 0;
+	while (*dst && i < size)
+	{
+		dst++;
+		i++;
+	}
+	result = ft_strlcpy(dst, src, size - i);
+	return (result + i);
+}

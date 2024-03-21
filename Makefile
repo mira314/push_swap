@@ -13,7 +13,7 @@ SRCS = main.c
 
 OBJS = ${SRCS:.c=.o}
 
-NAME = push_swap
+NAME = push_swap ft_swap.c
 
 CC = gcc
 

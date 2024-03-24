@@ -6,32 +6,27 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/21 09:45:25 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:58:23 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include "push_swap.h"
 
-int main(int argc, const char *argv[])
+//int main(int argc, const char *argv[])
+int main(void)
 {
-t_pile	*pile_a;
-t_pile	*pile_b;
-int	i;
- 
-i = 0;
-pile_a = (t_pile *)malloc(sizeof(t_pile));
-pile_a->size_pile = argc - 1;
-pile_a->range = (int *)malloc(sizeof(int) * pile_a->size_pile + 1);
-while(i < pile_a->size_pile)
-{
-	pile_a->range[i] = ft_atoi(argv[i + 1]);
-	i++;
-}
-i = 0;
-while(i < pile_a->size_pile )
-{
-	printf("%d \n",pile_a->range[i]);
-	i++;
-}
+	t_stack *pile_a;
+	pile_a = new_stack();
+
+	pile_a = insert_pile(pile_a, 42);
+	pile_a = insert_pile(pile_a, 24);
+	pile_a = insert_pile(pile_a, 43);
+	pile_a = insert_pile(pile_a, 44);
+	//printf("%d\n",pile_a->value);
+	ft_printf("is vide ->%d   \n",is_empty_stack(pile_a));
+
+	pile_a = clear_pile(pile_a);
+	ft_printf("is vide 2 ->%d   \n",is_empty_stack(pile_a));
+	//ft_putstr_fd("ok",1);
 	return 0;
+
 }

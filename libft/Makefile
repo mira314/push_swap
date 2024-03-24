@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vrandria <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/25 10:09:05 by vrandria          #+#    #+#              #
-#    Updated: 2024/02/25 10:09:07 by vrandria         ###   ########.fr        #
+#    Updated: 2024/03/23 16:00:51 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= libft.a
@@ -26,7 +26,7 @@ SRCS	= ft_atoi.c ft_bzero.c ft_calloc.c \
 
 BONUS_SRCS	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c
+			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c   
 
 CC	= gcc
 

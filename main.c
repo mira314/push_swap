@@ -22,11 +22,12 @@ int main(void)
 	pile_a = insert_pile(pile_a, 43);
 	pile_a = insert_pile(pile_a, 44);
 	//printf("%d\n",pile_a->value);
-	ft_printf("is vide ->%d   \n",is_empty_stack(pile_a));
+	//ft_printf("is vide ->%d   \n",is_empty_stack(pile_a));
 
 	pile_a = clear_pile(pile_a);
-	ft_printf("is vide 2 ->%d   \n",is_empty_stack(pile_a));
-	//ft_putstr_fd("ok",1);
+	//ft_printf("is vide 2 ->%d   \n",is_empty_stack(pile_a));
+	ft_putstr_fd("ok\n",1);
+	ft_putchar_fd('o',1);
 	return 0;
 
 }

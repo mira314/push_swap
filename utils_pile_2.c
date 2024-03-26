@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:15:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/26 07:46:23 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:22:33 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,8 +23,9 @@ void	print_pile(t_stack *pile)
 
 t_stack	*bottom_pile(t_stack *pile)
 {
-	while(!pile->next)
+	while(pile->next != NULL)
 		pile = pile->next;
+	ft_printf("la valeur est fin est utils %d",pile->value);
 	return (pile);
 }
 int	ft_pile_size(t_stack *pile)

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/26 07:40:05 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:23:37 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,7 +26,7 @@ int main(void)
 
 	print_pile(pile_a);
 	//pile_a = del_one_pile(pile_a);
-	ft_swap_pile(&pile_a);
+	ft_rotate_pile(&pile_a);
 	
 	ft_printf("---------------------------\n");
 	print_pile(pile_a);

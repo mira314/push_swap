@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/25 09:43:39 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/26 07:40:05 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,10 +25,14 @@ int main(void)
 	pile_a = insert_pile(pile_a, -5);
 
 	print_pile(pile_a);
-	pile_a = del_one_pile(pile_a);
+	//pile_a = del_one_pile(pile_a);
+	ft_swap_pile(&pile_a);
+	
 	ft_printf("---------------------------\n");
 	print_pile(pile_a);
+
+	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
 	pile_a = clear_pile(pile_a);
 	return 0;
-
 }
+

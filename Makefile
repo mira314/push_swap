@@ -6,10 +6,12 @@
 #    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 09:13:01 by vrandria          #+#    #+#              #
-#    Updated: 2024/03/25 10:59:37 by vrandria         ###   ########.fr        #
+#    Updated: 2024/03/26 07:32:17 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-SRCS = main.c utils_pile.c utils_pile_2.c
+SRCS = main.c utils_pile.c utils_pile_2.c \
+		ft_swap.c \
+		ft_rotate.c 
 
 OBJS = ${SRCS:.c=.o}
 
@@ -39,7 +41,7 @@ $(LIBFT):
 	@$(CC) $(FLAGS) -o $@ -c $?
 
 $(NAME)	: $(OBJS)  $(LIBFT) $(PRINTF)
-	@$(CC) $(FLAGS) $(OBJS)  -o $(NAME) $(LIBFT) $(PRINTF) 
+	$(CC) $(FLAGS) $(OBJS)  -o $(NAME) $(LIBFT) $(PRINTF) 
 
 #####################################################
 clean : 

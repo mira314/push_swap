@@ -6,7 +6,7 @@
 #    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/25 10:09:05 by vrandria          #+#    #+#              #
-#    Updated: 2024/03/25 09:25:56 by vrandria         ###   ########.fr        #
+#    Updated: 2024/03/26 06:51:15 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= libft.a
@@ -42,10 +42,10 @@ BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 		@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME)	: $(OBJS)
-		ar rcs $(NAME) $(OBJS)
+		@ar rcs $(NAME) $(OBJS)
 
 bonus	: $(BONUS_OBJS) $(OBJS)
-		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+		@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 		
 all : $(NAME)
 

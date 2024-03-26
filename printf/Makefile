@@ -6,7 +6,7 @@
 #    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/25 10:09:05 by vrandria          #+#    #+#              #
-#    Updated: 2024/03/25 09:25:01 by vrandria         ###   ########.fr        #
+#    Updated: 2024/03/26 06:52:00 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 SRCS = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_put_hex.c ft_putptr.c
@@ -21,7 +21,7 @@ all: ${NAME}
 	@$(CC) $(FLAGS) -o $@ -c $?
 
 ${NAME}:  $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 	
 clean:
 	rm -f ${OBJS}

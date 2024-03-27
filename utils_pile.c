@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:50:38 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/25 10:43:30 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/27 10:32:16 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -45,7 +45,7 @@ t_stack	*clear_pile(t_stack *pile)
 	free(pile);
 	return (clear_pile(tmp));
 }
-t_stack	*del_one_pile(t_stack *pile)
+void	*del_one_pile(t_stack *pile)
 {	
 	t_stack	*tmp;
 

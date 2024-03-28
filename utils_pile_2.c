@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:15:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/27 10:57:51 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 10:09:07 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -15,7 +15,7 @@ void	print_pile(t_stack *pile_a)
 {
 	if (!is_empty_stack(pile_a))
 	{
-		ft_printf("[%d] ",pile_a->value);
+		ft_printf("\n\t [%d] ",pile_a->value);
 		pile_a = pile_a->next;
 		print_pile(pile_a);
 	}

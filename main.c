@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 09:06:35 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 11:00:22 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -31,37 +31,39 @@ static t_container	*initialiser(t_container *container)
 	return(ct);
 }
 */
-static t_container *test(void)
+static t_container *fill_container(int *value)
 {
 	t_container *container;
+	 int	i;
+
+	i = 0;
 	container = malloc(sizeof(t_container));
 	container = initialiser(container);
-	container->top_a = insert_pile(container->top_a, 1);
-	container->top_a = insert_pile(container->top_a, 2);
-	container->top_a = insert_pile(container->top_a, 3);
-	container->top_a = insert_pile(container->top_a, 4);
-	container->top_a = insert_pile(container->top_a, 5);
-	container->top_a = insert_pile(container->top_a, 6);
-	container->top_a = insert_pile(container->top_a, 7);
+
+	while (value[i] != '\0')
+	{
+		container->top_a = insert_pile(container->top_a, value[i]);
+		i++;
+	}
 
 	container->top_b = insert_pile(container->top_b, 1);
 	container->top_b = insert_pile(container->top_b, 2);
 	container->top_b = insert_pile(container->top_b, 3);
 	container->top_b = insert_pile(container->top_b, 4);
+	free (value);
 	return (container);
-
 }
 
-//int main(int argc, const char *argv[])
-int main(void)
+int main(int argc, char *argv[])
 {	
 	t_container *container;
-	container = test();
+	ft_printf("%d\n",argc);
 
+
+	
+	container = fill_container(test);
 	ft_printf("pile a    => ");
 	print_pile(container->top_a);
-	//pile_a = del_one_pile(pile_a);
-	//ft_rotate_pile(&pile_a);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b    => ");
 	print_pile(container->top_b);
@@ -74,8 +76,11 @@ int main(void)
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
 	
+	//container =	ft_rotate_b(container);
+	container =	swap_a(container);
+	container =	reverse_rotate_a(container);
+	container =	push_b(container);
 	container =	swap_ss(container);
-	container = push_a(container);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
@@ -99,4 +104,6 @@ int main(void)
 	ft_swap_pile(&pile_a);
 	ft_swap_pile(&(container->pile_a));
 ft_rev_rotate_pile(&(container->pile_a));
+	//pile_a = del_one_pile(pile_a);
+	//ft_rotate_pile(&pile_a);
 */

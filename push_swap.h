@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 09:02:59 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 10:37:40 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ t_container	*swap_ss(t_container *container);
 
 /**********************ft_rotate.c***********************/
 void	ft_rotate_pile(t_stack **pile);
+t_container	*ft_rotate_a(t_container *container);
+t_container	*ft_rotate_b(t_container *container);
+t_container	*ft_rotate_r(t_container *container);
 
 /*********************push.c*****************************/
 t_container	*push_b(t_container *container);
@@ -64,3 +67,9 @@ t_container	*push_a(t_container *container);
 
 /***************revers *********************/
 void	ft_rev_rotate_pile(t_stack **pile);
+t_container *reverse_rotate_a(t_container *container);
+t_container *reverse_rotate_b(t_container *container);
+t_container *reverse_rotate_rr(t_container *container);
+
+///****************ft_input**********************/////
+int	*ft_insert_one(char *str);

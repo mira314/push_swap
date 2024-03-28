@@ -6,22 +6,28 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:08:46 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/27 11:11:31 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 08:23:58 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_rev_rotate_pile(t_stack **pile)
+void ft_rev_rotate_pile(t_stack **pile)
 {
-	t_stack *top;
+    t_stack *top;
+    t_stack *temp;
 
-	if (*pile != 0 && (*pile)->next != 0)
-	{
-		top = (*pile);
-		while ((*pile)->next->next != NULL)
-			(*pile) = (*pile)->next;
-		(*pile)->next->next = top;
-		(*pile)->next = new_stack();
-		(*pile) = top;
-	}
+    temp = 0;
+    top = (*pile);
+    if (*pile != 0 && (*pile)->next != 0)
+    {
+        while (top->next != 0)
+        {
+        	temp = top;
+            top = top->next;
+
+        }
+        temp->next = new_stack();
+        top->next = (*pile);
+        *pile = top;
+    }
 }

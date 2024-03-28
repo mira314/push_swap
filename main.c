@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/27 11:10:04 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 09:06:35 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -73,9 +73,9 @@ int main(void)
 	container->pile_a = container->top_a;
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
-
-	ft_rev_rotate_pile(&(container->pile_a));
-	container->top_a = container->pile_a;
+	
+	container =	swap_ss(container);
+	container = push_a(container);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
@@ -83,7 +83,7 @@ int main(void)
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
 
-	printf("action fait est %d\n",container->hit);
+	ft_printf("\naction fait est %d\n",container->hit);
 
 
 //	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
@@ -98,6 +98,5 @@ int main(void)
 	ft_swap_pile(&pile_a);
 	ft_swap_pile(&pile_a);
 	ft_swap_pile(&(container->pile_a));
-
-
+ft_rev_rotate_pile(&(container->pile_a));
 */

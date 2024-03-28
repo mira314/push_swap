@@ -6,13 +6,12 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/27 11:09:51 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/28 09:02:59 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "printf/ft_printf.h"
@@ -52,6 +51,9 @@ int	ft_pile_size(t_stack *pile);
 
 /**********************ft_swap.c**************************/
 void	ft_swap_pile(t_stack **stack);
+t_container	*swap_a(t_container *container);
+t_container	*swap_b(t_container *container);
+t_container	*swap_ss(t_container *container);
 
 /**********************ft_rotate.c***********************/
 void	ft_rotate_pile(t_stack **pile);

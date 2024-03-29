@@ -6,13 +6,13 @@
 #    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 09:13:01 by vrandria          #+#    #+#              #
-#    Updated: 2024/03/28 10:52:47 by vrandria         ###   ########.fr        #
+#    Updated: 2024/03/29 10:36:08 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 SRCS = main.c utils_pile.c utils_pile_2.c \
 		ft_swap.c \
 		ft_rotate.c ft_push.c ft_reverse_rotate.c  \
-		ft_input.c
+		ft_input.c check_errors.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -57,5 +57,8 @@ fclean: clean
 
 re : fclean all
 
+test :
+	"./push_swap" "1 2 4 t"
+##	"./push_swap" "73 42 96 18 55 37 68 21 84 29 63 10 49 82 6 91 27 53 14 78 35 60 3 46 89 12 67 24 57 39 81 19 75 8 61 32 94 15 70 45 99 50 23 64 1 58 36 79 5 93"
 
 .PHONY: printf

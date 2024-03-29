@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 07:31:02 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 09:00:44 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/29 09:34:49 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -31,13 +31,14 @@ t_container	*swap_a(t_container *container)
 	void	*next;
 
 	pile = container->top_a;
+	next = NULL;
+	if (pile == NULL || pile->next == NULL)
+		return (container);
 	next = pile->next;
-	if (pile != 0 && pile->next != 0)
-	{
-		ft_swap_pile(&pile);
-		ft_printf("sa\n");
-		container->hit += 1;
-	}
+	pile = container->top_a;
+	ft_swap_pile(&pile);
+	ft_printf("sb\n");
+	container->hit += 1;
 	container->top_a = next;
 	return (container);
 }
@@ -48,13 +49,14 @@ t_container	*swap_b(t_container *container)
 	void	*next;
 
 	pile = container->top_b;
+	next = NULL;
+	if (pile == NULL || pile->next == NULL)
+		return (container);
 	next = pile->next;
-	if (pile != 0 && pile->next != 0)
-	{
-		ft_swap_pile(&pile);
-		ft_printf("sb\n");
-		container->hit += 1;
-	}
+	pile = container->top_b;
+	ft_swap_pile(&pile);
+	ft_printf("sb\n");
+	container->hit += 1;
 	container->top_b = next;
 	return (container);
 }
@@ -65,15 +67,21 @@ t_container	*swap_ss(t_container *container)
 	void	*next;
 
 	pile = container->top_b;
-	next = pile->next;
-	if (pile != 0 && pile->next != 0)
+	next = NULL;
+	if (container->pile_b != NULL && container->pile_b->next != NULL)
+	{
+		next = pile->next;
 		ft_swap_pile(&pile);
-	container->top_b = next;
+		container->top_b = next;
+	}
 	pile = container->top_a;
-	next = pile->next;
-	if (pile != 0 && pile->next != 0)
+	next = NULL;
+	if (container->pile_a != NULL && container->pile_a->next != NULL)
+	{
+		next = pile->next;
 		ft_swap_pile(&pile);
-	container->top_a = next;
+		container->top_a = next;
+	}
 	container->hit += 1;
 	ft_printf("ss\n");
 	return (container);

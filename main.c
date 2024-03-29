@@ -85,3 +85,41 @@ ft_rev_rotate_pile(&(container->pile_a));
 	//pile_a = del_one_pile(pile_a);
 	//ft_rotate_pile(&pile_a);
 */
+void	two_element(t_container *container)
+{
+	if (container->pile_a->value > container->pile_a->next->value)
+		container	= swap_a(container);
+}
+
+void	three_element(t_container *container)
+{
+	if (container->pile_a->value > container->pile_a->next->value)
+	{
+		if (container->pile_a->next->value <container->pile_a->next->next->value)
+		{
+			if (container->pile_a->value > container->pile_a->next->next->value)
+				container = ft_rotate_a(container);
+			else
+				container = swap_a(container);
+		}
+		else
+		{
+			container = swap_a(container);
+			container = reverse_rotate_a(container);
+		}
+	}
+	else
+	{
+		if (container->pile_a->value > container->pile_a->next->next->value)
+			container =  reverse_rotate_a(container);
+		else
+			container =  three_not_trie(container);
+	}
+}
+
+void	three_not_trie(t_container *container)
+{
+	container =  ft_rotate_a(container);
+	container = swap_a(container);
+	container = reverse_rotate_a(container);
+}

@@ -126,19 +126,13 @@ void	three_not_order(t_container *container)
 
 int	order_ok(t_container *container)
 {
-	int	i;
-	int size;
 	t_stack *temp;
 
-	size = ft_pile_size(container->pile_a);
-	i = 0;
 	temp = container->pile_a;
-	while (i < size - 1)
+	while (temp->next != NULL)
 	{
 		if (temp->value > temp->next->value)
-			return (0);
 			temp = temp->next;
-		i++;
 	}
 	return (1);
 }

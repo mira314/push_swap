@@ -113,13 +113,32 @@ void	three_element(t_container *container)
 		if (container->pile_a->value > container->pile_a->next->next->value)
 			container =  reverse_rotate_a(container);
 		else
-			container =  three_not_trie(container);
+			container =  three_not_order(container);
 	}
 }
 
-void	three_not_trie(t_container *container)
+void	three_not_order(t_container *container)
 {
 	container =  ft_rotate_a(container);
 	container = swap_a(container);
 	container = reverse_rotate_a(container);
+}
+
+int	order_ok(t_container *container)
+{
+	int	i;
+	int size;
+	t_stack *temp;
+
+	size = ft_pile_size(container->pile_a);
+	i = 0;
+	temp = container->pile_a;
+	while (i < size - 1)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+			temp = temp->next;
+		i++;
+	}
+	return (1);
 }

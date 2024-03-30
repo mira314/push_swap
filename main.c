@@ -22,17 +22,18 @@
 */
 
 
-int main(int argc, char *argv[])
+int main(int argc, const char *argv[])
 {	
 	t_container *container;
 	ft_printf("%d\n",argc);
 
 	container = fill_container_one(argv[1]);
-	if (!container)
+/*	if (!container || ft_check_double(container->top_a))
 	{
 		free(container);
 		return (0);
 	}
+*/
 	ft_printf("pile a    => ");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");
@@ -48,11 +49,7 @@ int main(int argc, char *argv[])
 	//pile_a = container->top_a;
 	
 	//container =	ft_rotate_b(container);
-	container =	swap_a(container);
-	container =	push_b(container);
-	container =	swap_ss(container);
-	container =	swap_b(container);
-	container =	swap_a(container);
+	three_element(container);
 	//container =	swap_ss(container);
 	//container =	swap_a(container);
 	//container =	push_b(container);
@@ -85,54 +82,3 @@ ft_rev_rotate_pile(&(container->pile_a));
 	//pile_a = del_one_pile(pile_a);
 	//ft_rotate_pile(&pile_a);
 */
-void	two_element(t_container *container)
-{
-	if (container->pile_a->value > container->pile_a->next->value)
-		container	= swap_a(container);
-}
-
-void	three_element(t_container *container)
-{
-	if (container->pile_a->value > container->pile_a->next->value)
-	{
-		if (container->pile_a->next->value <container->pile_a->next->next->value)
-		{
-			if (container->pile_a->value > container->pile_a->next->next->value)
-				container = ft_rotate_a(container);
-			else
-				container = swap_a(container);
-		}
-		else
-		{
-			container = swap_a(container);
-			container = reverse_rotate_a(container);
-		}
-	}
-	else
-	{
-		if (container->pile_a->value > container->pile_a->next->next->value)
-			container =  reverse_rotate_a(container);
-		else
-			container =  three_not_order(container);
-	}
-}
-
-void	three_not_order(t_container *container)
-{
-	container =  ft_rotate_a(container);
-	container = swap_a(container);
-	container = reverse_rotate_a(container);
-}
-
-int	order_ok(t_container *container)
-{
-	t_stack *temp;
-
-	temp = container->pile_a;
-	while (temp->next != NULL)
-	{
-		if (temp->value > temp->next->value)
-			temp = temp->next;
-	}
-	return (1);
-}

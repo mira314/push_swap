@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/29 10:35:56 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:52:44 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,17 @@ t_container *reverse_rotate_b(t_container *container);
 t_container *reverse_rotate_rr(t_container *container);
 
 ///****************ft_input**********************/////
-t_container *fill_container_one(char *str);
+t_container *fill_container_one(const char *str);
 t_container	*initialiser(t_container *container);
 
 ///****************check_erroc**********************/////
 void	print_error(void);
-//int	ft_check_double(char **str);
+int	ft_check_double(t_stack *pile);
 int	si_atoiable(const char *str);
+int	order_ok(t_container *container);
+
+
+/*****************algo**************************/
+t_container	*three_not_order(t_container *container);
+void	three_element(t_container *container);
+void	two_element(t_container *container);

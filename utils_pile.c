@@ -49,7 +49,8 @@ t_stack	*clear_pile(t_stack *pile)
 void	*del_one_pile(t_stack *pile)
 {	
 	t_stack	*tmp;
-
+	
+	tmp = pile;
 	if (!is_empty_stack(pile))
 	{
 		tmp = pile->next;

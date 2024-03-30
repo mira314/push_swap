@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-/*static t_container	*updatel(t_container *ct, t_stack a, t_stack b);
+static t_container	*updatel(t_container *ct, t_stack a, t_stack b);
 {
 	ct->top_a = a;
 	ct->top_b = b;
@@ -19,7 +19,6 @@
 	ct->size_pile_b = ft_pile_size(b);
 	return(ct);
 }
-*/
 
 
 int main(int argc, const char *argv[])
@@ -49,7 +48,9 @@ int main(int argc, const char *argv[])
 	//pile_a = container->top_a;
 	
 	//container =	ft_rotate_b(container);
-	three_element(container);
+	//three_element(container);
+	//container->pile_a = container->top_a;
+	//container = push_b(container);
 	//container =	swap_ss(container);
 	//container =	swap_a(container);
 	//container =	push_b(container);
@@ -63,6 +64,7 @@ int main(int argc, const char *argv[])
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
 
+
 	ft_printf("\naction fait est %d\n",container->hit);
 
 
@@ -72,7 +74,23 @@ int main(int argc, const char *argv[])
 	free(container);
 	return 0;
 }
+t_container less_six_element(container);
+{
+	int	min_value;
 
+	container = updatel(container, container->pile_a, container->top_b);
+
+	if (container->size_pile_a == 2)
+	two_element(container);
+	else if (container->size_pile_a == 3)
+	three_element(container);
+	else
+	{
+		while (container->pile_a->next->next = NULL)
+			container = push_b(container);
+	}
+
+}
 /* teste 
 
 	ft_swap_pile(&pile_a);

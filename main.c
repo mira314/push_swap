@@ -141,29 +141,6 @@ int main(int argc, const char *argv[])
 	return 0;
 }
 
-/*** tsy mbola vita
-t_container *less_six_element(container)
-{
-	int	min_value;
-
-	container = updatel(container, container->pile_a, container->top_b);
-
-	if (container->size_pile_a == 2)
-	two_element(container);
-	else if (container->size_pile_a == 3)
-	three_element(container);
-	else
-	{
-		while (container->pile_a->next->next = NULL)
-			container = push_b(container);
-		three_element(container);
-		container = updatel(container, container->pile_a, container->top_b);
-
-		while ()
-	}
-
-}
-*/
 /* teste 
 
 	ft_swap_pile(&pile_a);

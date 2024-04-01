@@ -66,16 +66,17 @@ int	ft_check_double(t_stack *pile)
 		}
 	return (0);
 }
+
 int	order_ok(t_container *container)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = container->pile_a;
 	while (temp->next != NULL)
 	{
 		if (temp->value > temp->next->value)
-			temp = temp->next;
-		return (1);
+			return (0);
+		temp = temp->next;
 	}
-	return (0);
+	return (1);
 }

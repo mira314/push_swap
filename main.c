@@ -22,9 +22,9 @@ static t_container	*updatel(t_container *ct)
 t_container *split_pile(t_container *container)
 {
 
-	t_stack *lst_b;
+	t_stack *lst_a;
 
-	lst_b = 0;
+	lst_a = 0;
 	int size;
 
 	size = (container->size_pile_a / 2);
@@ -34,12 +34,12 @@ t_container *split_pile(t_container *container)
 	{
 		while (size--)
 		{
-			three_element(container);
+			//three_element(container);
 			container = push_b(container);
 			container = updatel(container);
-			lst_b = bottom_pile(container->pile_b);
-			if (lst_b->value > container->pile_b->value)
-				container = ft_rotate_b(container);
+			lst_a = bottom_pile(container->pile_a);
+			if (lst_a->value < container->pile_a->value)
+				container = ft_rotate_a(container);
 			container = updatel(container);
 		}
 	}
@@ -56,12 +56,12 @@ t_container *fusion_pile(t_container *container)
 		lst_a = bottom_pile(container->pile_a);
 		container = push_a(container);
 		container = updatel(container);
-		if (lst_a->value > container->pile_a->value)
+		if (lst_a->value < container->pile_a->value)
 		{
 			container = ft_rotate_a(container);
 		}
 		container = updatel(container);
-		//three_element(container);
+		three_element(container);
 		container = updatel(container);
 	}
 	return (container);
@@ -71,9 +71,9 @@ int main(int argc, const char *argv[])
 {	
 	t_container *container;
 	ft_printf("%d\n",argc);
-	//int test;
+//	int test;
 
-	//test = 1;
+//	test = 60;
 	container = fill_container_one(argv[1]);
 /*	if (!container || ft_check_double(container->top_a))
 	{
@@ -93,17 +93,19 @@ int main(int argc, const char *argv[])
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
 	//container = updatel(container);
-//	while (test--)
-//	{
-//	container = updatel(container);
-//	container = split_pile(container);
-//	container = split_pile(container);
-//	container = split_pile(container);
-//	container = split_pile(container);
-//	container = fusion_pile(container);
-//	}
+	while (1)
+	{
 	container = updatel(container);
-	three_element(container);
+	container = split_pile(container);
+	container = split_pile(container);
+	container = split_pile(container);
+	container = fusion_pile(container);
+	if (order_ok(container) == 1)
+		break;
+	}
+	container = updatel(container);
+	//ft_printf("%d check\n", order_ok(container));
+	//three_element(container);
 	//container = split_pile(container);
 	//container = split_pile(container);
 	//container = split_pile(container);

@@ -10,22 +10,70 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
-static t_container	*updatel(t_container *ct, t_stack a, t_stack b);
+//t_container	*ft_rotate_b(t_container *container) mila soloina
+static t_container	*updatel(t_container *ct)
 {
-	ct->top_a = a;
-	ct->top_b = b;
-	ct->size_pile_a = ft_pile_size(a);
-	ct->size_pile_b = ft_pile_size(b);
+	ct->pile_a = ct->top_a;
+	ct->pile_b = ct->top_b;
+	ct->size_pile_a = ft_pile_size(ct->pile_a);
+	ct->size_pile_b = ft_pile_size(ct->pile_b);
 	return(ct);
 }
+t_container *split_pile(t_container *container)
+{
 
+	t_stack *lst_b;
+
+	lst_b = 0;
+	int size;
+
+	size = (container->size_pile_a / 2);
+	if ((container->pile_a == NULL) || (container->pile_a->next == NULL))
+		return (container);
+	else
+	{
+		while (size--)
+		{
+			three_element(container);
+			container = push_b(container);
+			container = updatel(container);
+			lst_b = bottom_pile(container->pile_b);
+			if (lst_b->value > container->pile_b->value)
+				container = ft_rotate_b(container);
+			container = updatel(container);
+		}
+	}
+		return (container);
+}
+
+t_container *fusion_pile(t_container *container)
+{
+	t_stack *lst_a;
+
+	lst_a  = 0;
+	while (container->pile_b != NULL)
+	{
+		lst_a = bottom_pile(container->pile_a);
+		container = push_a(container);
+		container = updatel(container);
+		if (lst_a->value > container->pile_a->value)
+		{
+			container = ft_rotate_a(container);
+		}
+		container = updatel(container);
+		//three_element(container);
+		container = updatel(container);
+	}
+	return (container);
+}
 
 int main(int argc, const char *argv[])
 {	
 	t_container *container;
 	ft_printf("%d\n",argc);
+	//int test;
 
+	//test = 1;
 	container = fill_container_one(argv[1]);
 /*	if (!container || ft_check_double(container->top_a))
 	{
@@ -40,15 +88,31 @@ int main(int argc, const char *argv[])
 	print_pile(container->top_b);
 	ft_printf("\n---------------------------\n");
 //	print_pile(container->pile_a);
-	container->pile_a = container->top_a;
 	//container->top_a = ft_swap_pile(&(container->pile_a));
 	//(&(container->top_b));
-	container->pile_b = container->top_b;
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
-	
+	//container = updatel(container);
+//	while (test--)
+//	{
+//	container = updatel(container);
+//	container = split_pile(container);
+//	container = split_pile(container);
+//	container = split_pile(container);
+//	container = split_pile(container);
+//	container = fusion_pile(container);
+//	}
+	container = updatel(container);
+	three_element(container);
+	//container = split_pile(container);
+	//container = split_pile(container);
+	//container = split_pile(container);
+	//container = fusion_pile(container);
+	//container = fusion_pile(container);
+	//container = ft_rotate_b(container);
 	//container =	ft_rotate_b(container);
 	//three_element(container);
+	//container = updatel(container);
 	//container->pile_a = container->top_a;
 	//container = push_b(container);
 	//container =	swap_ss(container);
@@ -74,7 +138,9 @@ int main(int argc, const char *argv[])
 	free(container);
 	return 0;
 }
-t_container less_six_element(container);
+
+/*** tsy mbola vita
+t_container *less_six_element(container)
 {
 	int	min_value;
 
@@ -88,9 +154,14 @@ t_container less_six_element(container);
 	{
 		while (container->pile_a->next->next = NULL)
 			container = push_b(container);
+		three_element(container);
+		container = updatel(container, container->pile_a, container->top_b);
+
+		while ()
 	}
 
 }
+*/
 /* teste 
 
 	ft_swap_pile(&pile_a);

@@ -45,7 +45,7 @@ t_container	*ft_rotate_a(t_container *container)
 	return (container);
 }
 
-t_container	*ft_rev_rotate_a(t_container *container)
+t_container	*ft_rotate_b(t_container *container)
 {
 	t_stack	*pile;
 	void	*next;

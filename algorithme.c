@@ -21,7 +21,7 @@ void	three_element(t_container *container)
 {
 	if (container->pile_a->value > container->pile_a->next->value)
 	{
-		if (container->pile_a->next->value <container->pile_a->next->next->value)
+		if (container->pile_a->next->value < container->pile_a->next->next->value)
 		{
 			if (container->pile_a->value > container->pile_a->next->next->value)
 				container = ft_rotate_a(container);
@@ -34,17 +34,19 @@ void	three_element(t_container *container)
 			container = reverse_rotate_a(container);
 		}
 	}
-	else
+	else if (container->pile_a->value < container->pile_a->next->value)
 	{
 		if (container->pile_a->value > container->pile_a->next->next->value)
 			container =  reverse_rotate_a(container);
-		else
+		else if (container->pile_a->next->value > container->pile_a->next->next->value)
 			container =  three_not_order(container);
 	}
+	container->top_a = container->pile_a;
 }
 t_container	*three_not_order(t_container *container)
 {
-	container =  ft_rotate_a(container);
+	container->top_a = container->pile_a;
+	container = ft_rotate_a(container);
 	container = swap_a(container);
 	container = reverse_rotate_a(container);
 	return (container);

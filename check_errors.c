@@ -75,6 +75,7 @@ int	order_ok(t_container *container)
 	{
 		if (temp->value > temp->next->value)
 			temp = temp->next;
+		return (1);
 	}
-	return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/02 08:56:28 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:06:46 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -33,14 +33,19 @@ int main(int argc, const char *argv[])
 		return (0);
 	}
 */
-	container = updatel(container);
-	if (container == NULL)
+	if (container == 0)
+	{
+		print_error();
+		return (0);
+	}
+	if (ft_check_double(container) == 1)
 	{
 		print_error();
 		return (0);
 	}
 
-ft_printf("double est %d\n",ft_check_double(container));
+
+//ft_printf("double est %d\n",ft_check_double(container));
 	ft_printf("pile a    => ");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");

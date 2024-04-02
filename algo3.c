@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 08:08:21 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/02 08:12:14 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:10:57 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -37,6 +37,7 @@ t_container *split_pile(t_container *container)
 	}
 		return (container);
 }
+
 t_container *fusion_pile(t_container *container)
 {
 	t_stack *lst_a;

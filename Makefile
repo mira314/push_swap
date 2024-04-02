@@ -6,14 +6,14 @@
 #    By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 09:13:01 by vrandria          #+#    #+#              #
-#    Updated: 2024/03/30 16:55:48 by vrandria         ###   ########.fr        #
+#    Updated: 2024/04/02 08:12:00 by vrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 SRCS = main.c utils_pile.c utils_pile_2.c \
 		ft_swap.c \
 		ft_rotate.c ft_push.c ft_reverse_rotate.c  \
 		ft_input.c check_errors.c \
-		algorithme.c
+		algorithme.c algo3.c
 
 OBJS = ${SRCS:.c=.o}
 

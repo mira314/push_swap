@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 07:49:48 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/30 16:17:43 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 09:09:08 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -32,38 +32,38 @@ int	si_atoiable(const char *str)
 	}
 	if (str[i] || count == 0 || count > 10)
 	{
-		ft_printf("Error\n");
+		//ft_printf("Error\n");
 		return (0);
 	}
 	return (1);
 }
 
-int	ft_check_double(t_stack *pile)
+int	ft_check_double(t_container *container)
 {
 	int	value;
 	t_stack *prev;
 	t_stack	*tmp;
 	t_stack *top;
 
-	prev = pile;
-	tmp = pile;
-	top = pile;
+	prev = container->top_a;
+	tmp = container->top_a;
+	top = container->top_a;
 	value = 0;
+	tmp = top;
 	while (prev->next != NULL)
 	{
-		tmp = top;
 		while(tmp->next != NULL)
 		{
 			if (prev->value == tmp->value)
 				value++;
 			prev = prev->next;
 		}
+		ft_printf("%s\n","eto no tsy mety");
+
 	}
+	container = updatel(container);
 	if (value > 1)
-		{
-			print_error();
 			return(1);
-		}
 	return (0);
 }
 

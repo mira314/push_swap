@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/30 16:52:44 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 08:56:46 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	*del_one_pile(t_stack *pile);
 void	print_pile(t_stack *pile_a);
 t_stack	*bottom_pile(t_stack *pile);
 int	ft_pile_size(t_stack *pile);
-
-#endif
+t_container	*updatel(t_container *ct);
 
 /**********************ft_swap.c**************************/
 void	ft_swap_pile(t_stack **stack);
@@ -74,10 +73,11 @@ t_container *reverse_rotate_rr(t_container *container);
 ///****************ft_input**********************/////
 t_container *fill_container_one(const char *str);
 t_container	*initialiser(t_container *container);
+t_container *fill_container_multi(int argc, const char *argv[]);
 
 ///****************check_erroc**********************/////
 void	print_error(void);
-int	ft_check_double(t_stack *pile);
+int	ft_check_double(t_container *container);
 int	si_atoiable(const char *str);
 int	order_ok(t_container *container);
 
@@ -86,3 +86,10 @@ int	order_ok(t_container *container);
 t_container	*three_not_order(t_container *container);
 void	three_element(t_container *container);
 void	two_element(t_container *container);
+
+
+///****************** algo3.c  ******************/
+t_container *split_pile(t_container *container);
+t_container *fusion_pile(t_container *container);
+
+#endif

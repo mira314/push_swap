@@ -1,86 +1,46 @@
 /* ************************************************************************** */
-/* a                                                                           */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 11:00:22 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 08:56:28 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 //t_container	*ft_rotate_b(t_container *container) mila soloina
-static t_container	*updatel(t_container *ct)
-{
-	ct->pile_a = ct->top_a;
-	ct->pile_b = ct->top_b;
-	ct->size_pile_a = ft_pile_size(ct->pile_a);
-	ct->size_pile_b = ft_pile_size(ct->pile_b);
-	return(ct);
-}
-t_container *split_pile(t_container *container)
-{
-
-	t_stack *lst_a;
-
-	lst_a = 0;
-	int size;
-
-	size = (container->size_pile_a / 2);
-	if ((container->pile_a == NULL) || (container->pile_a->next == NULL))
-		return (container);
-	else
-	{
-		while (size--)
-		{
-			//three_element(container);
-			container = push_b(container);
-			container = updatel(container);
-			lst_a = bottom_pile(container->pile_a);
-			if (lst_a->value < container->pile_a->value)
-				container = ft_rotate_a(container);
-			container = updatel(container);
-		}
-	}
-		return (container);
-}
-
-t_container *fusion_pile(t_container *container)
-{
-	t_stack *lst_a;
-
-	lst_a  = 0;
-	while (container->pile_b != NULL)
-	{
-		lst_a = bottom_pile(container->pile_a);
-		container = push_a(container);
-		container = updatel(container);
-		if (lst_a->value < container->pile_a->value)
-		{
-			container = ft_rotate_a(container);
-		}
-		container = updatel(container);
-		three_element(container);
-		container = updatel(container);
-	}
-	return (container);
-}
 
 int main(int argc, const char *argv[])
 {	
 	t_container *container;
-	ft_printf("%d\n",argc);
 //	int test;
 
 //	test = 60;
-	container = fill_container_one(argv[1]);
+	if (argc == 2)
+		container = fill_container_one(argv[1]);
+	else if (argc > 2)
+		container = fill_container_multi(argc, argv);
+	else
+	{
+		print_error();
+		return (0);
+	}
 /*	if (!container || ft_check_double(container->top_a))
 	{
 		free(container);
 		return (0);
 	}
 */
+	container = updatel(container);
+	if (container == NULL)
+	{
+		print_error();
+		return (0);
+	}
+
+ft_printf("double est %d\n",ft_check_double(container));
 	ft_printf("pile a    => ");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");

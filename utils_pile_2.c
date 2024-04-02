@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:15:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 10:09:07 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/02 08:05:59 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -38,4 +38,13 @@ int	ft_pile_size(t_stack *pile)
 		pile = pile->next;
 	}
 	return (i);
+}
+
+t_container	*updatel(t_container *ct)
+{
+	ct->pile_a = ct->top_a;
+	ct->pile_b = ct->top_b;
+	ct->size_pile_a = ft_pile_size(ct->pile_a);
+	ct->size_pile_b = ft_pile_size(ct->pile_b);
+	return(ct);
 }

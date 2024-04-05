@@ -29,6 +29,46 @@ int	find_min(t_container *container)
 	}
 	return (min);
 }
+int	find_max(t_container *container)
+{
+	int min;
+	t_stack *temp;
+	int size;
+
+	max = -2147483648;
+	temp = container->pile_a;
+	container = updatel(container);
+	size = container->size_pile_a;
+	while (size--)
+	{
+		if (temp->value > max)
+				max = temp->value;
+		temp = temp->next;
+	}
+	return (max);
+}
+int	find_median(t_container *container)
+{
+
+}
+int cost_go_to_this_element(t_stack *pile, int value)
+{
+	int	move;
+	t_stack *temp;
+
+	temp = pile;
+	move = 0;
+	while (temp->value != value)
+	{
+		if (temp->next == NULL)
+			return (-1);
+		move++;
+		temp = temp->next;
+	}
+	return (move);
+
+	
+}
 t_container *sort_by_select(t_container *container)
 {
 	t_stack *temp;
@@ -39,13 +79,22 @@ t_container *sort_by_select(t_container *container)
 	temp = container->pile_a;
 	while (temp != NULL)
 	{
-		if (temp->value == min )
+		if (temp->value == min)
 			{
 				container = push_b(container);
 				break;
 			}
-		temp = temp->next;
-		container = ft_rotate_a(container);
+		if (cost_go_to_this_element(container->pile_a, min) <= (container->size_pile_a / 2))
+			{
+				temp = temp->next;
+				container = ft_rotate_a(container);
+			}
+		else
+		{
+			temp = bottom_pile(container->pile_a);
+			container = reverse_rotate_a(container);
+		}
+	//	container = updatel(container);
 	}
 	container = updatel(container);
 	return (container);
@@ -114,8 +163,8 @@ int main(int argc, const char *argv[])
 	print_pile(container->top_b);
 
 	ft_printf("\naction fait est %d\n",container->hit);
-
-
+	container = updatel(container);
+	ft_printf("contion %d",container->size_pile_a);
 //	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
 	container->pile_a = clear_pile(container->top_a);
 	container->top_b = clear_pile(container->top_b);

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:50:38 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/28 08:25:21 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:31:44 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -32,8 +32,10 @@ t_stack	*insert_pile(t_stack *pile, int value)
 		return (0);
 	new_pile->value = value;
 	new_pile->next = pile;
+	ft_rotate_pile(&new_pile);
 	return (new_pile);
 }
+
 
 t_stack	*clear_pile(t_stack *pile)
 {

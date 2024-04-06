@@ -6,17 +6,17 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 07:33:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 09:15:14 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 17:25:01 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static int	ft_sort_median(int *tab, int size)
+static int	ft_sort_median(int *tab, int size, int median)
 {
 	int	tmp;
 	int	i;
-	int median;
-	median = size / 2;
+	int med;
+	med = size / median;
 	while (size--)
 	{
 		i = 0;
@@ -31,7 +31,7 @@ static int	ft_sort_median(int *tab, int size)
 			i++;
 		}
 	}
-	return (tab[median]);
+	return (tab[med]);
 }
 int	cost_go_to_this_element(t_stack *pile, int value)
 {
@@ -49,16 +49,17 @@ int	cost_go_to_this_element(t_stack *pile, int value)
 	}
 	return (move);
 }
-int	find_median(t_container *container)
+int	find_median(t_container *container, int median)
 {
 	t_stack *tmp;
-	int median;
+	int med;
 	int *tab;
 	int	size;
 	int i;
 
 	i = 0;
-	size = ft_pile_size(container->pile_a);
+	container = updatel(container);
+	size = ft_pile_size(container->top_a);
 	tmp = container->pile_a;
 	tab =(int *)malloc(sizeof(int) * size);
 		if (!tab)
@@ -69,7 +70,29 @@ int	find_median(t_container *container)
 		tmp = tmp->next;
 		i++;
 	}
-	median = ft_sort_median(tab, size);
+	med = ft_sort_median(tab, size, median);
 	free(tab);
-	return (median);
+	return (med);
+}
+int	find_below_median(t_stack *pile, int median)
+{
+	t_stack *tmp;
+	int	count;
+
+	count = 0;
+	tmp = pile;
+	while (tmp != NULL)
+	{
+		if ((tmp->value) < median)
+			{
+				count++;
+				ft_printf("***************************%d vs %d count est %d\n",tmp->value, median, count);
+			}
+		tmp = tmp->next;
+	}
+	if (count >= 1)
+	{
+		return (1);
+	}
+	return (0);
 }

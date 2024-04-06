@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 10:16:17 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 16:53:55 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,12 +26,6 @@ int main(int argc, const char *argv[])
 		print_error();
 		return (0);
 	}
-/*	if (!container || ft_check_double(container->top_a))
-	{
-		free(container);
-		return (0);
-	}
-*/
 	if (container == 0)
 	{
 		print_error();
@@ -51,6 +45,8 @@ int main(int argc, const char *argv[])
 	ft_printf("pile b    => ");
 	print_pile(container->top_b);
 	ft_printf("\n---------------------------\n");
+
+
 //	print_pile(container->pile_a);
 	//container->top_a = ft_swap_pile(&(container->pile_a));
 	//(&(container->top_b));
@@ -67,9 +63,20 @@ int main(int argc, const char *argv[])
 	if (order_ok(container) == 1)
 		break;
 	}*/
+	//t_stack *pile =container->pile_a;
+	//ft_swap_pile(&pile);
 	//five_element(container);
-	three_element(container);
-	//four_element(container);
+	//ft_rotate_pile(&(container->pile_a));
+	container = split_pile(container);
+	/*
+	while (container->pile_b != NULL)
+	{
+			container = fusion_pile(container);
+			container = updatel(container);
+	}
+	*/
+	//three_element(container);
+	//six_element(container);
 	container = updatel(container);
 	//ft_printf("%d check\n", order_ok(container));
 	//three_element(container);
@@ -90,17 +97,18 @@ int main(int argc, const char *argv[])
 	//container =	reverse_rotate_a(container);
 	//container =	push_b(container);
 	//container =	swap_ss(container);
+	
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
-
+	
 
 	ft_printf("\naction fait est %d\n",container->hit);
 
-	ft_printf("le median est %d \n",find_median(container));
+//	ft_printf("le median est %d \n",find_median(container));
 //	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
 	container->pile_a = clear_pile(container->top_a);
 	container->top_b = clear_pile(container->top_b);

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 07:49:48 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 06:59:48 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:24:40 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -50,13 +50,12 @@ int	ft_check_double(t_container *container)
 	{
 		tmp = container->top_a;
 		prev = prev->next;
-		while(tmp->next != NULL)
+		while(tmp != NULL)
 		{
 			if (tmp->value == prev->value)
 				{
 					value++;
-					//ft_printf("tmp %d vs prev %d \n",tmp->value, prev->value );
-					if (value > 1)
+					if (value >= 2)
 						return(1);
 				}
 			tmp = tmp->next;

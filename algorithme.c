@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:15:15 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 10:22:12 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 17:29:28 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,9 +26,13 @@ void two_element(t_container *container)
 void three_element(t_container *container)
 {
     t_stack *a = container->pile_a;
-    
-    if (a->value > a->next->value && a->next->value < a->next->next->value)
-        container = ft_rotate_a(container);
+    int z;
+
+    z = a->next->next->value;
+    if (a->value > a->next->value && a->next->value < z && z > a->value)
+            container = swap_a(container);
+    else if (a->value > a->next->value && a->next->value < z && z < a->value)
+                container = ft_rotate_a(container);
     else if (a->value > a->next->value && a->next->value > a->next->next->value)
     {
         container = swap_a(container);
@@ -36,6 +40,11 @@ void three_element(t_container *container)
     }
     else if (a->value > a->next->value && a->next->value < a->next->next->value)
         container = swap_a(container);
+    else if (a->value < a->next->value && a->next->value > z && z > a->value)
+        {
+            container = reverse_rotate_a(container);
+            container = swap_a(container);
+        }
     else if (a->value < a->next->value && a->next->value > a->next->next->value)
         container = reverse_rotate_a(container);
     else if (a->value < a->next->value && a->next->value > a->next->next->value)
@@ -46,12 +55,12 @@ void three_element(t_container *container)
 void four_element(t_container *container)
 {
  container = push_min_value(container);
-
     if (!order_ok(container))
         three_element(container);
     container = updatel(container);
-  //  container = push_a(container);
+    container = push_a(container);
     container = updatel(container);
+
 }
 void five_element(t_container *container)
 {
@@ -62,5 +71,4 @@ void five_element(t_container *container)
     container = updatel(container);
     container = push_a(container);
     container = updatel(container);
-
 }

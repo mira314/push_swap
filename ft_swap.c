@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 07:31:02 by vrandria          #+#    #+#             */
-/*   Updated: 2024/03/29 09:34:49 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 10:50:10 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,7 +28,7 @@ void	ft_swap_pile(t_stack **pile)
 t_container	*swap_a(t_container *container)
 {
 	t_stack	*pile;
-	void	*next;
+	t_stack	*next;
 
 	pile = container->top_a;
 	next = NULL;
@@ -37,7 +37,7 @@ t_container	*swap_a(t_container *container)
 	next = pile->next;
 	pile = container->top_a;
 	ft_swap_pile(&pile);
-	ft_printf("sb\n");
+	ft_printf("sa\n");
 	container->hit += 1;
 	container->top_a = next;
 	return (container);

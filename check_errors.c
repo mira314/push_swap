@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 07:49:48 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/02 11:07:26 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 06:59:48 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -42,16 +42,13 @@ int	ft_check_double(t_container *container)
 	int	value;
 	t_stack *prev;
 	t_stack	*tmp;
-	t_stack *top;
 
 	prev = container->top_a;
 	tmp = container->top_a;
-	top = container->top_a;
 	value = 0;
-	tmp = top;
 	while (prev->next != NULL)
 	{
-		tmp = container->pile_a;
+		tmp = container->top_a;
 		prev = prev->next;
 		while(tmp->next != NULL)
 		{

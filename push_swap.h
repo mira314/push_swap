@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/02 08:56:46 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/06 10:12:38 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include "printf/ft_printf.h"
 # include "libft/libft.h"
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -84,13 +83,19 @@ int	order_ok(t_container *container);
 
 
 /*****************algo**************************/
-t_container	*three_not_order(t_container *container);
 void	three_element(t_container *container);
 void	two_element(t_container *container);
-
+void four_element(t_container *container);
+void five_element(t_container *container);
 
 ///****************** algo3.c  ******************/
 t_container *split_pile(t_container *container);
 t_container *fusion_pile(t_container *container);
+int	find_min(t_stack *pile);
+int	find_max(t_stack *pile);
+t_container *push_min_value(t_container *container);
 
+///****************** ind_value.c  ******************/
+int	find_median(t_container *container);
+int	cost_go_to_this_element(t_stack *pile, int value);
 #endif

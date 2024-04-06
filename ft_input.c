@@ -33,7 +33,6 @@ t_container *fill_container_one(const char *str)
 		free(splited[i]);
 		i++;
 	}
-	printf("%s\n","eto----------------------");
 	free(splited);
 	return (container);
 }

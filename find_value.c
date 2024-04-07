@@ -119,3 +119,21 @@ int	find_below_median(t_stack *pile, int median)
 		return (1);
 	return (0);
 }
+
+int	find_under_median(t_stack *pile, int median)
+{
+	t_stack *tmp;
+	int	count;
+
+	count = 0;
+	tmp = pile;
+	while (tmp != NULL)
+	{
+		if ((tmp->value) > median)
+				count++;
+		tmp = tmp->next;
+	}
+	if (count >= 1)
+		return (1);
+	return (0);
+}

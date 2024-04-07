@@ -23,10 +23,12 @@ void	six_element(t_container *container)
 
 t_container	*split_recusive(t_container *container)
 {
+	container = split_pile(container);
 	int	size;
 
 	container = updatel(container);
 	size = container->size_pile_a;
+	container = split_pile(container);
 	while (size > 6)
 	{
 		container = split_pile(container);

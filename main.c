@@ -11,6 +11,78 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+t_container *sort_a_remain(t_container *container)
+{
+	container = reverse_rotate_a(container);
+	container = push_b(container);
+	container = reverse_rotate_a(container);
+	container = updatel(container);
+
+	while (container->size_pile_b < 24)
+	{
+		if (container->pile_b < bottom_pile(container->pile_b))
+		{
+			container = reverse_rotate_rr(container);
+		}
+		else
+			container = reverse_rotate_a(container);
+		container = push_b(container);
+		container = updatel(container);
+	}
+	return (container);
+}
+
+t_container *split_pile_b(t_container *container)
+{
+	int	median;
+	int size;
+	int move;
+
+	move = 0;
+	container = updatel(container);
+	size = container->size_pile_b;
+	median = find_median_b(container, 4);
+	while (size-- && find_under_median(container->pile_a, median) != 0)
+	{
+		if (container->pile_b->value > median)
+		{
+			container = push_a(container);
+			move++;
+		}
+		else
+			container = ft_rotate_b(container);
+		container = updatel(container);
+	}
+	while (move--)
+	{
+		//container = push_min_value(container);
+	}
+
+	return (container);
+}
+
+t_container *split_pile_bb(t_container *container)
+{
+	int	median;
+	int size;
+
+	container = updatel(container);
+	size = container->size_pile_b;
+	median = find_median_b(container, 2);
+	while (size--)
+	{
+		if (container->pile_b->value < median)
+		{
+			container = push_a(container);
+			container = ft_rotate_a(container);
+		}
+		else
+			container = ft_rotate_b(container);
+		container = updatel(container);
+	}
+	return (container);
+}
+
 int main(int argc, const char *argv[])
 {	
 	t_container *container;
@@ -53,45 +125,24 @@ int main(int argc, const char *argv[])
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
 	
-
 	container = split_recusive(container);
-	while (container->size_pile_b > 1)
+
+	while (container->size_pile_b > 0)
 	{
 	container = fusion_pile(container);
 	}
 
-	
-	/*while (1)
+/*
+	container = split_pile_bb(container);
+	while (container->size_pile_b > 0)
 	{
-	container = updatel(container);
-	container = split_pile(container);
-	container = split_pile(container);
-	container = split_pile(container);
 	container = fusion_pile(container);
-	if (order_ok(container) == 1)
-		break;
-	}*/
-	//t_stack *pile =container->pile_a;
-	//ft_swap_pile(&pile);
-	//five_element(container);
-	//ft_rotate_pile(&(container->pile_a));
-	/*
-	while (container->size_pile_a > 6)
-	{
-	container = split_pile(container);
-	container = updatel(container);
 	}
-	*/
-	//container = fusion_pile_to_b(container); 
-	/*
-	while (container->pile_b != NULL)
-	{
-			container = fusion_pile(container);
-			container = updatel(container);
-	}
-	*/
-	//three_element(container);
-	//six_element(container);
+	//container = sort_a_remain(container);
+
+*/
+
+
 	container = updatel(container);
 	//ft_printf("%d check\n", order_ok(container));
 	//three_element(container);
@@ -113,14 +164,14 @@ int main(int argc, const char *argv[])
 	//container =	push_b(container);
 	//container =	swap_ss(container);
 	
-	/*
+	
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
-	*/
+	
 
 	ft_printf("\naction fait est %d\n",container->hit);
 	

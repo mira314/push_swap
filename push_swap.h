@@ -106,4 +106,7 @@ int	find_median_b(t_container *container, int median);
 int	cost_go_to_this_element(t_stack *pile, int value);
 int	find_below_median(t_stack *pile, int median);
 
+t_container *split_pile_b(t_container *container);
+int	find_under_median(t_stack *pile, int median);
+t_container *split_pile_bb(t_container *container);
 #endif

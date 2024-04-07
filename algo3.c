@@ -54,7 +54,7 @@ t_container *split_pile(t_container *container)
 
 	container = updatel(container);
 	size = container->size_pile_a;
-	median = find_median_a(container, 3);
+	median = find_median_a(container, 2);
 	while (size-- && find_below_median(container->pile_a, median) != 0)
 	{
 		if (container->pile_a->value < median)
@@ -164,10 +164,8 @@ t_container *fusion_pile_to_b(t_container *container)
 
 	b = container->pile_a;
 	container = updatel(container);
-	int p = 1;
-	//while (container->size_pile_a >= container->size_pile_b)
 
-	while (p--)
+	while (container->size_pile_a >= container->size_pile_b)
 	{
 		min = find_min(b);
 		while (1)

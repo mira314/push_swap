@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 07:33:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 17:25:01 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:51:04 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -49,13 +49,14 @@ int	cost_go_to_this_element(t_stack *pile, int value)
 	}
 	return (move);
 }
-int	find_median(t_container *container, int median)
+
+int	find_median_a(t_container *container, int median)
 {
 	t_stack *tmp;
-	int med;
-	int *tab;
-	int	size;
-	int i;
+	int		med;
+	int		*tab;
+	int		size;
+	int		i;
 
 	i = 0;
 	container = updatel(container);
@@ -74,6 +75,32 @@ int	find_median(t_container *container, int median)
 	free(tab);
 	return (med);
 }
+int	find_median_b(t_container *container, int median)
+{
+	t_stack *tmp;
+	int		med;
+	int		*tab;
+	int		size;
+	int		i;
+
+	i = 0;
+	container = updatel(container);
+	size = ft_pile_size(container->top_b);
+	tmp = container->pile_b;
+	tab =(int *)malloc(sizeof(int) * size);
+		if (!tab)
+			return (-1);
+	while (tmp->next != NULL)
+	{
+		tab[i] = tmp->value;
+		tmp = tmp->next;
+		i++;
+	}
+	med = ft_sort_median(tab, size, median);
+	free(tab);
+	return (med);
+}
+
 int	find_below_median(t_stack *pile, int median)
 {
 	t_stack *tmp;
@@ -84,15 +111,10 @@ int	find_below_median(t_stack *pile, int median)
 	while (tmp != NULL)
 	{
 		if ((tmp->value) < median)
-			{
 				count++;
-				ft_printf("***************************%d vs %d count est %d\n",tmp->value, median, count);
-			}
 		tmp = tmp->next;
 	}
 	if (count >= 1)
-	{
 		return (1);
-	}
 	return (0);
 }

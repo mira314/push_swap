@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 16:53:55 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:36:38 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -68,6 +68,7 @@ int main(int argc, const char *argv[])
 	//five_element(container);
 	//ft_rotate_pile(&(container->pile_a));
 	container = split_pile(container);
+	container = fusion_pile_to_b(container); 
 	/*
 	while (container->pile_b != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 17:16:58 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:14:41 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,15 @@ t_container *fusion_pile(t_container *container);
 int	find_min(t_stack *pile);
 int	find_max(t_stack *pile);
 t_container *push_min_value(t_container *container);
+
+t_container *fusion_pile_to_b(t_container *container);
 /***************algo_utils***************************/
 void six_element(t_container *container);
 t_container *split_recusive(t_container *container);
 
 ///****************** find_value.c  ******************/
-int	find_median(t_container *container, int median);
+int	find_median_a(t_container *container, int median);
+int	find_median_b(t_container *container, int median);
 int	cost_go_to_this_element(t_stack *pile, int value);
 int	find_below_median(t_stack *pile, int median);
 

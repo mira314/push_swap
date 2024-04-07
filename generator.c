@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_NUMBERS 20
-#define RANGE_MIN -500
+#define MAX_NUMBERS 100
+#define RANGE_MIN 0
 #define RANGE_MAX 500
 
 void generateUniqueRandomNumbers(int *arr, int size) {

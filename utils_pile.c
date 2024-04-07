@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:50:38 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 11:31:44 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 10:05:58 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -36,7 +36,6 @@ t_stack	*insert_pile(t_stack *pile, int value)
 	return (new_pile);
 }
 
-
 t_stack	*clear_pile(t_stack *pile)
 {
 	t_stack	*tmp;
@@ -51,7 +50,7 @@ t_stack	*clear_pile(t_stack *pile)
 void	*del_one_pile(t_stack *pile)
 {	
 	t_stack	*tmp;
-	
+
 	tmp = pile;
 	if (!is_empty_stack(pile))
 	{

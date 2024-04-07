@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 16:46:20 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:04:25 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -52,7 +52,7 @@ int main(int argc, const char *argv[])
 	//(&(container->top_b));
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
-	/*
+	
 
 	container = split_recusive(container);
 	while (container->size_pile_b > 1)
@@ -60,7 +60,7 @@ int main(int argc, const char *argv[])
 	container = fusion_pile(container);
 	}
 
-	*/
+	
 	/*while (1)
 	{
 	container = updatel(container);
@@ -120,10 +120,10 @@ int main(int argc, const char *argv[])
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
-	
+	*/
 
 	ft_printf("\naction fait est %d\n",container->hit);
-	*/
+	
 //	ft_printf("le median est %d \n",find_median(container));
 //	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
 	container->top_a = clear_pile(container->top_a);

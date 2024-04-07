@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 07:33:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 14:43:39 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:05:12 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -15,10 +15,9 @@ static int	ft_sort_median(int *tab, int size, int median)
 {
 	int	tmp;
 	int	i;
-	int med;
+	int	med;
 
 	med = size / median;
-	//med = med * 2;
 	while (size--)
 	{
 		i = 0;
@@ -37,8 +36,8 @@ static int	ft_sort_median(int *tab, int size, int median)
 }
 int	cost_go_to_this_element(t_stack *pile, int value)
 {
-	int	move;
-	t_stack *temp;
+	int		move;
+	t_stack	*temp;
 
 	temp = pile;
 	move = 0;
@@ -54,7 +53,7 @@ int	cost_go_to_this_element(t_stack *pile, int value)
 
 int	find_median_a(t_container *container, int median)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		med;
 	int		*tab;
 	int		size;
@@ -79,7 +78,7 @@ int	find_median_a(t_container *container, int median)
 }
 int	find_median_b(t_container *container, int median)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		med;
 	int		*tab;
 	int		size;

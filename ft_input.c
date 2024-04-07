@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:10:02 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 11:30:58 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:48:19 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,12 +26,15 @@ t_container *fill_container_one(const char *str)
 	{
 		if (!si_atoiable(splited[i]))
 		{
+			container->top_a = clear_pile(container->top_a);
+			while (splited[i])
+				free(splited[i++]);
 			free(splited);
+			free(container);
 			return (0);
 		}
 		container->top_a = insert_pile(container->top_a,ft_atoi(splited[i]));
-		free(splited[i]);
-		i++;
+		free(splited[i++]);
 	}
 	free(splited);
 	return (container);
@@ -51,6 +54,8 @@ t_container *fill_container_multi(int argc, const char *argv[])
 	{
 		if (!si_atoiable(argv[i]))
 		{
+			container->top_a = clear_pile(container->top_a);
+			free(container);
 			return (0);
 		}
 		container->top_a = insert_pile(container->top_a,ft_atoi(argv[i]));

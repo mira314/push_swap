@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 08:08:21 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 12:47:33 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:35:21 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -46,24 +46,6 @@ int	find_max(t_stack *pile)
 	}
 	return (max);
 }
-t_container *split_pile_min_b(t_container *container)
-{
-	int	median;
-	int size;
-
-	median = find_median_b(container, 2);
-	size = container->size_pile_b;
-		while (size--)
-	{
-		if (container->pile_b->value > median)
-			container = push_a(container);
-		else
-			container = ft_rotate_b(container);
-		container = updatel(container);
-	}
-	return (container);
-
-}
 
 t_container *split_pile(t_container *container)
 {
@@ -72,7 +54,7 @@ t_container *split_pile(t_container *container)
 
 	container = updatel(container);
 	size = container->size_pile_a;
-	median = find_median_a(container, 2);
+	median = find_median_a(container, 3);
 	while (size-- && find_below_median(container->pile_a, median) != 0)
 	{
 		if (container->pile_a->value < median)
@@ -81,9 +63,7 @@ t_container *split_pile(t_container *container)
 			container = ft_rotate_a(container);
 		container = updatel(container);
 	}
-	while (container->size_pile_b > 3)
-	container = split_pile_min_b(container);
-		return (container);
+	return (container);
 }
 /*
 t_container *fusion_pile(t_container *container)

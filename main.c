@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 08:50:58 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 12:36:38 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:46:20 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -17,15 +17,12 @@ int main(int argc, const char *argv[])
 //	int test;
 
 //	test = 60;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 		container = fill_container_one(argv[1]);
-	else if (argc > 2)
+	if (argc > 2)
 		container = fill_container_multi(argc, argv);
-	else
-	{
-		print_error();
-		return (0);
-	}
 	if (container == 0)
 	{
 		print_error();
@@ -33,10 +30,13 @@ int main(int argc, const char *argv[])
 	}
 	if (ft_check_double(container) == 1)
 	{
+		container->top_a = clear_pile(container->top_a);
+		container->top_b = clear_pile(container->top_b);
+		free(container);
 		print_error();
 		return (0);
 	}
-
+/*
 
 //ft_printf("double est %d\n",ft_check_double(container));
 	ft_printf("pile a    => ");
@@ -46,13 +46,21 @@ int main(int argc, const char *argv[])
 	print_pile(container->top_b);
 	ft_printf("\n---------------------------\n");
 
-
+*/
 //	print_pile(container->pile_a);
 	//container->top_a = ft_swap_pile(&(container->pile_a));
 	//(&(container->top_b));
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
-	//container = updatel(container);
+	/*
+
+	container = split_recusive(container);
+	while (container->size_pile_b > 1)
+	{
+	container = fusion_pile(container);
+	}
+
+	*/
 	/*while (1)
 	{
 	container = updatel(container);
@@ -67,8 +75,14 @@ int main(int argc, const char *argv[])
 	//ft_swap_pile(&pile);
 	//five_element(container);
 	//ft_rotate_pile(&(container->pile_a));
+	/*
+	while (container->size_pile_a > 6)
+	{
 	container = split_pile(container);
-	container = fusion_pile_to_b(container); 
+	container = updatel(container);
+	}
+	*/
+	//container = fusion_pile_to_b(container); 
 	/*
 	while (container->pile_b != NULL)
 	{
@@ -99,6 +113,7 @@ int main(int argc, const char *argv[])
 	//container =	push_b(container);
 	//container =	swap_ss(container);
 	
+	/*
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
@@ -108,10 +123,10 @@ int main(int argc, const char *argv[])
 	
 
 	ft_printf("\naction fait est %d\n",container->hit);
-
+	*/
 //	ft_printf("le median est %d \n",find_median(container));
 //	printf("la taille de la pile est %d\n",ft_pile_size(pile_a));
-	container->pile_a = clear_pile(container->top_a);
+	container->top_a = clear_pile(container->top_a);
 	container->top_b = clear_pile(container->top_b);
 	free(container);
 	return 0;

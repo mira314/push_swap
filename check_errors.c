@@ -6,14 +6,14 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 07:49:48 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/06 14:24:40 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:58:35 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 void	print_error(void)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 }
 int	si_atoiable(const char *str)
 {
@@ -63,6 +63,8 @@ int	ft_check_double(t_container *container)
 		value = 0;
 	}
 	container = updatel(container);
+	container->top_a = clear_pile(container->top_a);
+	container->top_b = clear_pile(container->top_b);
 	return (0);
 }
 

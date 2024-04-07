@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 07:33:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 11:51:04 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:43:39 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -16,7 +16,9 @@ static int	ft_sort_median(int *tab, int size, int median)
 	int	tmp;
 	int	i;
 	int med;
+
 	med = size / median;
+	//med = med * 2;
 	while (size--)
 	{
 		i = 0;

@@ -101,7 +101,7 @@ void six_element(t_container *container);
 t_container *split_recusive(t_container *container);
 
 ///****************** find_value.c  ******************/
-int	find_median_a(t_container *container, int median);
+int	find_median_a(t_container *container, int median, int quote);
 int	find_median_b(t_container *container, int median);
 int	cost_go_to_this_element(t_stack *pile, int value);
 int	find_below_median(t_stack *pile, int median);

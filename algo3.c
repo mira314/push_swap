@@ -54,7 +54,7 @@ t_container *split_pile(t_container *container)
 
 	container = updatel(container);
 	size = container->size_pile_a;
-	median = find_median_a(container, 2);
+	median = find_median_a(container, 2, 1);
 	while (size-- && find_below_median(container->pile_a, median) != 0)
 	{
 		if (container->pile_a->value < median)

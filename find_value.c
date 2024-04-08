@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static int	ft_sort_median(int *tab, int size, int median)
+static int	ft_sort_median(int *tab, int size, int median, int quote)
 {
 	int	tmp;
 	int	i;
 	int	med;
 
 	med = size / median;
+	med = med * quote;
 	while (size--)
 	{
 		i = 0;
@@ -51,7 +52,7 @@ int	cost_go_to_this_element(t_stack *pile, int value)
 	return (move);
 }
 
-int	find_median_a(t_container *container, int median)
+int	find_median_a(t_container *container, int median, int quote)
 {
 	t_stack	*tmp;
 	int		med;
@@ -72,10 +73,11 @@ int	find_median_a(t_container *container, int median)
 		tmp = tmp->next;
 		i++;
 	}
-	med = ft_sort_median(tab, size, median);
+	med = ft_sort_median(tab, size, median, quote);
 	free(tab);
 	return (med);
 }
+
 int	find_median_b(t_container *container, int median)
 {
 	t_stack	*tmp;
@@ -97,7 +99,7 @@ int	find_median_b(t_container *container, int median)
 		tmp = tmp->next;
 		i++;
 	}
-	med = ft_sort_median(tab, size, median);
+	med = ft_sort_median(tab, size, median, 1);
 	free(tab);
 	return (med);
 }

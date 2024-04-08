@@ -11,6 +11,38 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+t_container *split_pile_first(t_container *container)
+{
+	int	median;
+	int median3;
+
+	container = updatel(container);
+	median = find_median_a(container, 2, 1);
+	median3 = find_median_a(container, 4, 1);
+	while (find_below_median(container->pile_a, median) != 0)
+	{
+		if (container->pile_a->value < median)
+			{
+				container = push_b(container);
+				container = updatel(container);
+				if (container->pile_b->value < median3)
+				{
+					if (container->pile_a->value > median)
+					{
+						container = ft_rotate_r(container);
+					}
+					else
+					container = ft_rotate_b(container);
+				}
+			}
+		else
+			container = ft_rotate_a(container);
+		container = updatel(container);
+	}
+	return (container);
+}
+
+
 t_container *sort_a_remain(t_container *container)
 {
 	container = reverse_rotate_a(container);
@@ -124,7 +156,8 @@ int main(int argc, const char *argv[])
 	//(&(container->top_b));
 	//container->top_a = del_one_pile(container->top_a);
 	//pile_a = container->top_a;
-	
+	container = split_pile_first(container);
+
 	container = split_recusive(container);
 
 	while (container->size_pile_b > 0)
@@ -132,14 +165,13 @@ int main(int argc, const char *argv[])
 	container = fusion_pile(container);
 	}
 
-/*
+	/*
 	container = split_pile_bb(container);
 	while (container->size_pile_b > 0)
 	{
 	container = fusion_pile(container);
 	}
-	//container = sort_a_remain(container);
-
+	container = sort_a_remain(container);
 */
 
 

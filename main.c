@@ -11,11 +11,36 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+t_container *target_index(t_container *container, long *tab,long size)
+{
+	t_stack *tmp;
+	long	i;
+
+	i = 0;
+	container = updatel(container);
+	tmp = container->top_a;
+	while (size--)
+	{
+		tmp = container->top_a;
+		i = 0;
+		while (tmp != NULL)
+		{
+		if (tmp->value == tab[i])
+			{
+				tmp->i = i;
+				break ;
+			}
+		i++;
+		}
+	}
+	return (container);
+}
+
 t_container *sorting_index(t_container *container)
 {
 	t_stack	*tmp;
 	long		*tab;
-	int		size;
+	long		size;
 	int		i;
 
 	i = 0;
@@ -32,6 +57,7 @@ t_container *sorting_index(t_container *container)
 		i++;
 	}
 	tab = indexation(container, tab, size)
+	container = target_index(container, tab, size)
 	free(tab);
 	return (container);
 }

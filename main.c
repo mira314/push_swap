@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
-t_container *target_index(t_container *container, long *tab,long size)
+///fichier h
+///print pile
+/// indexation
+t_container *target_index(t_container *container, long *tab)
 {
 	t_stack *tmp;
 	long	i;
@@ -19,19 +21,21 @@ t_container *target_index(t_container *container, long *tab,long size)
 	i = 0;
 	container = updatel(container);
 	tmp = container->top_a;
-	while (size--)
+	while (tmp != NULL)
 	{
-		tmp = container->top_a;
-		i = 0;
-		while (tmp != NULL)
+		while (1)
 		{
-		if (tmp->value == tab[i])
+		if (tab[i] == tmp->value)
 			{
 				tmp->i = i;
+				ft_printf("tab[%d] = %d  tmp->value= %d\n",i, tab[i], tmp->value);
 				break ;
 			}
-		i++;
+		else
+			i++;
 		}
+		tmp = tmp->next;
+		i = 0;
 	}
 	return (container);
 }
@@ -47,17 +51,18 @@ t_container *sorting_index(t_container *container)
 	container = updatel(container);
 	size = ft_pile_size(container->top_a);
 	tmp = container->pile_a;
-	tab = (long *)malloc(sizeof(long) * size);
+	tab = (long *)malloc(sizeof(long) * size + 1);
 	if (!tab)
-		return (-1);
+		return (0);
 	while (tmp->next != NULL)
 	{
 		tab[i] = tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
-	tab = indexation(container, tab, size)
-	container = target_index(container, tab, size)
+	tab = indexation(tab, size);
+	ft_printf("taybeeb %d\n",tab[3]);
+	container = target_index(container, tab);
 	free(tab);
 	return (container);
 }
@@ -85,21 +90,28 @@ int main(int argc, const char *argv[])
 		return (0);
 	}
 
-	container = split_pile_first(container);
-	container = split_recusive(container);
-	while (container->size_pile_b > 0)
-	container = fusion_pile(container);
-	container = updatel(container);
-	container->top_a = clear_pile(container->top_a);
-	container->top_b = clear_pile(container->top_b);
-	free(container);
-	return 0;
-}
-/*	
+	container = sorting_index(container);
+	if (order_ok(container))
+		return (0);
+	if (container->size_pile_a < 6)
+		container = split_recusive(container);
+	else
+	{
+		container = split_pile_first(container);
+		container = split_recusive(container);
+		while (container->size_pile_b > 0)
+		container = fusion_pile(container);
+	}
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
-*/
+
+	container = updatel(container);
+	container->top_a = clear_pile(container->top_a);
+	container->top_b = clear_pile(container->top_b);
+	free(container);
+	return 0;
+}

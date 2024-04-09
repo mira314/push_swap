@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-long	*indexation(t_container *container, long *tab, int size)
+long	*indexation(long *tab, int size)
 {
 	long	tmp;
 	long	i;

@@ -20,6 +20,7 @@
 typedef struct s_stack
 {
 	int	value;
+	long	i;
 	struct s_stack *next;
 } t_stack;
 
@@ -29,7 +30,6 @@ typedef struct s_container
 	int		size_pile_a;
 	int		size_pile_b;
 	int		hit;
-	long	i;
 	struct	s_stack *pile_a;
 	struct	s_stack *pile_b;
 	
@@ -75,7 +75,7 @@ t_container *reverse_rotate_rr(t_container *container);
 t_container *fill_container_one(const char *str);
 t_container	*initialiser(t_container *container);
 t_container *fill_container_multi(int argc, const char *argv[]);
-tab	*indexation(t_container *container, long *tab, int size);
+long	*indexation(long *tab, int size);
 
 ///****************check_erroc**********************/////
 void	print_error(void);

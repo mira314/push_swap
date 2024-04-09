@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:08:51 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 14:03:31 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/09 08:49:48 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ typedef struct s_stack
 } t_stack;
 
 typedef struct s_container
-{	void *top_a;
-	void *top_b;
-	int	size_pile_a;
-	int	size_pile_b;
-	int	hit;
-	struct s_stack *pile_a;
-	struct s_stack *pile_b;
+{	void	*top_a;
+	void	*top_b;
+	int		size_pile_a;
+	int		size_pile_b;
+	int		hit;
+	long	i;
+	struct	s_stack *pile_a;
+	struct	s_stack *pile_b;
 	
 }t_container;
 
@@ -74,6 +75,7 @@ t_container *reverse_rotate_rr(t_container *container);
 t_container *fill_container_one(const char *str);
 t_container	*initialiser(t_container *container);
 t_container *fill_container_multi(int argc, const char *argv[]);
+tab	*indexation(t_container *container, long *tab, int size);
 
 ///****************check_erroc**********************/////
 void	print_error(void);
@@ -95,18 +97,15 @@ int	find_min(t_stack *pile);
 int	find_max(t_stack *pile);
 t_container *push_min_value(t_container *container);
 
-t_container *fusion_pile_to_b(t_container *container);
 /***************algo_utils***************************/
 void six_element(t_container *container);
 t_container *split_recusive(t_container *container);
 
 ///****************** find_value.c  ******************/
-int	find_median_a(t_container *container, int median, int quote);
+int	find_median_a(t_container *container, int median);
 int	find_median_b(t_container *container, int median);
 int	cost_go_to_this_element(t_stack *pile, int value);
 int	find_below_median(t_stack *pile, int median);
-
-t_container *split_pile_b(t_container *container);
-int	find_under_median(t_stack *pile, int median);
-t_container *split_pile_bb(t_container *container);
+/*********************split.c   *********************/
+t_container	*split_pile_first(t_container *container);
 #endif

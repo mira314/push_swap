@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:32:55 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 16:56:58 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/09 07:23:29 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,12 +23,10 @@ void	six_element(t_container *container)
 
 t_container	*split_recusive(t_container *container)
 {
-	container = split_pile(container);
 	int	size;
 
 	container = updatel(container);
 	size = container->size_pile_a;
-	container = split_pile(container);
 	while (size > 6)
 	{
 		container = split_pile(container);

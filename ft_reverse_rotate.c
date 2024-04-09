@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 09:08:46 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 10:12:40 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/09 07:26:28 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -62,6 +62,7 @@ t_container	*reverse_rotate_b(t_container *container)
 		container->hit += 1;
 	}
 	container->top_b = next;
+	container = updatel(container);
 	return (container);
 }
 

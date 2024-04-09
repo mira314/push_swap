@@ -6,19 +6,18 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 07:33:29 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 17:05:12 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/09 08:23:39 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static int	ft_sort_median(int *tab, int size, int median, int quote)
+static int	ft_sort_median(int *tab, int size, int median)
 {
 	int	tmp;
 	int	i;
 	int	med;
 
 	med = size / median;
-	med = med * quote;
 	while (size--)
 	{
 		i = 0;
@@ -35,6 +34,7 @@ static int	ft_sort_median(int *tab, int size, int median, int quote)
 	}
 	return (tab[med]);
 }
+
 int	cost_go_to_this_element(t_stack *pile, int value)
 {
 	int		move;
@@ -52,7 +52,7 @@ int	cost_go_to_this_element(t_stack *pile, int value)
 	return (move);
 }
 
-int	find_median_a(t_container *container, int median, int quote)
+int	find_median_a(t_container *container, int median)
 {
 	t_stack	*tmp;
 	int		med;
@@ -64,16 +64,16 @@ int	find_median_a(t_container *container, int median, int quote)
 	container = updatel(container);
 	size = ft_pile_size(container->top_a);
 	tmp = container->pile_a;
-	tab =(int *)malloc(sizeof(int) * size);
-		if (!tab)
-			return (-1);
+	tab = (int *)malloc(sizeof(int) * size);
+	if (!tab)
+		return (-1);
 	while (tmp->next != NULL)
 	{
 		tab[i] = tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
-	med = ft_sort_median(tab, size, median, quote);
+	med = ft_sort_median(tab, size, median);
 	free(tab);
 	return (med);
 }
@@ -90,49 +90,31 @@ int	find_median_b(t_container *container, int median)
 	container = updatel(container);
 	size = ft_pile_size(container->top_b);
 	tmp = container->pile_b;
-	tab =(int *)malloc(sizeof(int) * size);
-		if (!tab)
-			return (-1);
+	tab = (int *)malloc(sizeof(int) * size);
+	if (!tab)
+		return (-1);
 	while (tmp->next != NULL)
 	{
 		tab[i] = tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
-	med = ft_sort_median(tab, size, median, 1);
+	med = ft_sort_median(tab, size, median);
 	free(tab);
 	return (med);
 }
 
 int	find_below_median(t_stack *pile, int median)
 {
-	t_stack *tmp;
-	int	count;
+	t_stack	*tmp;
+	int		count;
 
 	count = 0;
 	tmp = pile;
 	while (tmp != NULL)
 	{
 		if ((tmp->value) < median)
-				count++;
-		tmp = tmp->next;
-	}
-	if (count >= 1)
-		return (1);
-	return (0);
-}
-
-int	find_under_median(t_stack *pile, int median)
-{
-	t_stack *tmp;
-	int	count;
-
-	count = 0;
-	tmp = pile;
-	while (tmp != NULL)
-	{
-		if ((tmp->value) > median)
-				count++;
+			count++;
 		tmp = tmp->next;
 	}
 	if (count >= 1)

@@ -6,10 +6,32 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:10:02 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/07 16:58:48 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/09 09:02:07 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+
+long	*indexation(t_container *container, long *tab, int size)
+{
+	long	tmp;
+	long	i;
+
+	while (size--)
+	{
+		i = 0;
+		while (i < size - 1)
+		{
+			if (tab[i] > tab[i + 1])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
+			}
+			i++;
+		}
+	}
+	return (tab);
+}
 
 t_container	*fill_container_one(const char *str)
 {
@@ -75,3 +97,4 @@ t_container	*initialiser(t_container *container)
 	container->hit = 0;
 	return (container);
 }
+

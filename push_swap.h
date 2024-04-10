@@ -75,7 +75,7 @@ t_container *reverse_rotate_rr(t_container *container);
 t_container *fill_container_one(const char *str);
 t_container	*initialiser(t_container *container);
 t_container *fill_container_multi(int argc, const char *argv[]);
-long	*indexation(long *tab, int size);
+int	*indexation(int *tab, int size);
 
 ///****************check_erroc**********************/////
 void	print_error(void);

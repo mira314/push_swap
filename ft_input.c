@@ -11,28 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-long	*indexation(long *tab, int size)
-{
-	long	tmp;
-	long	i;
-
-	while (size--)
-	{
-		i = 0;
-		while (i < size - 1)
-		{
-			if (tab[i] > tab[i + 1])
-			{
-				tmp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = tmp;
-			}
-			i++;
-		}
-	}
-	return (tab);
-}
-
 t_container	*fill_container_one(const char *str)
 {
 	t_container	*container;

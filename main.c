@@ -13,10 +13,32 @@
 ///fichier h
 ///print pile
 /// indexation
-t_container *target_index(t_container *container, long *tab)
+int	*index_sort(int *tab, int size)
+{
+	int	tmp;
+	int	i;
+	
+	while (size--)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tab[i] > tab[i + 1])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
+			}
+			i++;
+		}
+	}
+	return (tab);
+}
+
+t_container *target_index(t_container *container, int *tab)
 {
 	t_stack *tmp;
-	long	i;
+	int	i;
 
 	i = 0;
 	container = updatel(container);
@@ -43,24 +65,24 @@ t_container *target_index(t_container *container, long *tab)
 t_container *sorting_index(t_container *container)
 {
 	t_stack	*tmp;
-	long		*tab;
-	long		size;
+	int		*tab;
+	int		size;
 	int		i;
 
 	i = 0;
 	container = updatel(container);
 	size = ft_pile_size(container->top_a);
 	tmp = container->pile_a;
-	tab = (long *)malloc(sizeof(long) * size + 1);
+	tab = malloc(sizeof(int) * size + 1);
 	if (!tab)
 		return (0);
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		tab[i] = tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
-	tab = indexation(tab, size);
+	tab = index_sort(tab, size);
 	ft_printf("taybeeb %d\n",tab[3]);
 	container = target_index(container, tab);
 	free(tab);

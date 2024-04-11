@@ -3,8 +3,8 @@
 #include <time.h>
 
 #define MAX_NUMBERS 500
-#define RANGE_MIN 0
-#define RANGE_MAX 1000
+#define RANGE_MIN -500
+#define RANGE_MAX 500
 
 void generateUniqueRandomNumbers(int *arr, int size) {
     srand(time(NULL)); // Seed the random number generator

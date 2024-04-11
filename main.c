@@ -13,6 +13,51 @@
 ///fichier h
 ///print pile
 /// indexation
+int find_index(t_stack *pile , int index)
+{
+	t_stack *tmp;
+
+	tmp = pile;
+	while (tmp != NULL)
+	{
+		if (index == pile->i)
+			return (pile->value);
+		tmp = tmp->next;
+	}
+	return (pile->value);
+}
+
+t_container *sp_mimax100(t_container *container, int min)
+{
+	int median1;
+	int median2;
+	int median;
+	int size;
+	median1 = min + 50;
+	median2 = min + 75;
+	size = container->size_pile_a;
+	median = find_index(container->pile_a, median1);
+	while (size-- &&find_below_median(container->pile_a , median) != 0)
+	{
+		if (container->pile_a->value < median1)
+		{
+			container = push_b(container);
+			container = updatel(container);
+			if (container->pile_b->value < median2)
+			{
+				if (container->pile_a->value > median1)
+					container = ft_rotate_r(container);
+				else
+					container = ft_rotate_b(container);
+			}
+		}
+		else
+			container = ft_rotate_a(container);
+		container = updatel(container);
+	}
+	return (container);
+}
+
 int	*index_sort(int *tab, int size)
 {
 	int	tmp;
@@ -83,7 +128,6 @@ t_container *sorting_index(t_container *container)
 		i++;
 	}
 	tab = index_sort(tab, size);
-	ft_printf("taybeeb %d\n",tab[3]);
 	container = target_index(container, tab);
 	free(tab);
 	return (container);
@@ -111,8 +155,13 @@ int main(int argc, const char *argv[])
 		print_error();
 		return (0);
 	}
-
+/*	
 	container = sorting_index(container);
+	container = sp_mimax100(container, 0);
+	container = sp_mimax100(container, 50);
+	container = sp_mimax100(container, 100);
+	container = sp_mimax100(container, 150);
+*/
 	if (order_ok(container))
 		return (0);
 	if (container->size_pile_a < 6)
@@ -124,16 +173,21 @@ int main(int argc, const char *argv[])
 		while (container->size_pile_b > 0)
 		container = fusion_pile(container);
 	}
+/*
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile a new =>");
 	print_pile(container->top_a);
 	ft_printf("\n---------------------------\n");
 	ft_printf("pile b new =>");
 	print_pile(container->top_b);
-
+	ft_printf("action fait %d \n", container->hit);
+	ft_printf("taille %d \n", container->size_pile_b);
+	*/
+	
 	container = updatel(container);
 	container->top_a = clear_pile(container->top_a);
 	container->top_b = clear_pile(container->top_b);
 	free(container);
 	return 0;
 }
+//8544 14463

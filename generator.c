@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_NUMBERS 500
-#define RANGE_MIN -500
-#define RANGE_MAX 500
+#define MAX_NUMBERS 100
+#define RANGE_MIN -2147483648
+#define RANGE_MAX 2147483647
 
 void generateUniqueRandomNumbers(int *arr, int size) {
     srand(time(NULL)); // Seed the random number generator

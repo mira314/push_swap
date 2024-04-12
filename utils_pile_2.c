@@ -15,7 +15,7 @@ void	print_pile(t_stack *pile_a)
 {
 	if (!is_empty_stack(pile_a))
 	{
-		ft_printf("\n\t [%d]->%d ", pile_a->value, pile_a->i);
+		ft_printf("\n\t [%d] ", pile_a->value);
 		pile_a = pile_a->next;
 		print_pile(pile_a);
 	}

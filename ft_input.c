@@ -6,7 +6,7 @@
 /*   By: vrandria <vrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:10:02 by vrandria          #+#    #+#             */
-/*   Updated: 2024/04/09 09:02:07 by vrandria         ###   ########.fr       */
+/*   Updated: 2024/04/12 09:35:46 by vrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,7 +24,7 @@ t_container	*fill_container_one(const char *str)
 	splited = ft_split(str, ' ');
 	while (splited[i])
 	{
-		if (!si_atoiable(splited[i]))
+		if (!si_atoiable(splited[i]) || so_long(splited[i]))
 		{
 			container->top_a = clear_pile(container->top_a);
 			while (splited[i])
@@ -52,7 +52,7 @@ t_container	*fill_container_multi(int argc, const char *argv[])
 	container = initialiser(container);
 	while (i <= argc - 1)
 	{
-		if (!si_atoiable(argv[i]))
+		if (!si_atoiable(argv[i]) || so_long(argv[i]))
 		{
 			container->top_a = clear_pile(container->top_a);
 			free(container);
@@ -75,4 +75,5 @@ t_container	*initialiser(t_container *container)
 	container->hit = 0;
 	return (container);
 }
+
 
